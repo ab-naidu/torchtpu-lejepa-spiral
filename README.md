@@ -1,5 +1,7 @@
 # When does compiling pay off on TorchTPU? A LeJEPA spiral experiment
 
+[Read the step-by-step written tutorial](docs/index.md) · [Open the runnable notebook in Colab](https://colab.research.google.com/github/ab-naidu/torchtpu-lejepa-spiral/blob/main/LeJEPA_TorchTPU.ipynb)
+
 For a PyTorch training loop on a Cloud TPU, how many steps does it take for Defer and Fuse or `torch.compile` to pay back its startup cost against strict eager? This tutorial measures that crossover and checks that the model still learns the same task. Each comparison uses a single TPU device and fresh processes with matched initial weights and inputs.
 
 In this experiment the encoder sees two noisy views of a hidden point. Each view has been rotated through an angle that depends on its distance from the origin. The observed cloud still looks Gaussian. Can the encoder learn a representation from which a straight-line readout recovers the original coordinates?

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="{{ page.lang | default: 'en' | escape }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | escape }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description | strip_html | escape }}">{% endif %}
+    <link rel="stylesheet" href="{{ '/article.css' | relative_url }}">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to article</a>
+    <main id="main" tabindex="-1">
+      <article class="article">
+        {{ content
+          | replace: '<table>', '<div class="table-scroll" role="region" aria-label="Data table" tabindex="0"><table>'
+          | replace: '</table>', '</table></div>'
+          | replace: '<pre>', '<pre tabindex="0">'
+          | replace: '<pre class="highlight">', '<pre class="highlight" tabindex="0">'
+        }}
+      </article>
+    </main>
+  </body>
+</html>
